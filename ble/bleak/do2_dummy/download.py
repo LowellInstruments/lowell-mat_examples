@@ -1,4 +1,4 @@
-from mat.ble.bleak_beta.examples.do2.download import download
+from ble.bleak.do2.download import download
 
 
 if __name__ == "__main__":

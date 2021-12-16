@@ -1,4 +1,4 @@
-from mat.ble.ble_macs import MAC_LOGGER_MAT1_0
+from ble.ble_macs import MAC_LOGGER_MAT1_0
 from mat.ble.bleak_beta.logger_mat import LoggerMAT
 
 

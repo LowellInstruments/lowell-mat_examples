@@ -1,4 +1,4 @@
-from mat.ble.bleak_beta.examples.do2.config import config
+from ble.bleak.do2.config import config
 
 
 cfg = {

@@ -1,4 +1,4 @@
-from mat.ble.bleak_beta.examples.do2.rli import rli
+from ble.bleak.do2.rli import rli
 
 
 if __name__ == "__main__":

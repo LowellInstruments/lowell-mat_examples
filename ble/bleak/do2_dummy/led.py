@@ -1,4 +1,4 @@
-from mat.ble.bleak_beta.examples.do2.led import leds
+from ble.bleak.do2.led import leds
 
 
 if __name__ == "__main__":

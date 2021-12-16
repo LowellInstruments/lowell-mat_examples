@@ -1,7 +1,7 @@
 import queue
 
-from mat.ble.bluepy.examples.xmlrpc._common import xr_launch_threads
-from mat.ble.bluepy.xc_ble_lowell import *
+from ble.bluepy.xmlrpc._common import xr_launch_threads
+from mat.ble.bluepy.xc_ble_lowell import XS_BLE_CMD_SCAN, XS_BLE_CMD_SCAN_DUMMY, XS_BLE_BYE
 
 
 def scan(dummy=False):

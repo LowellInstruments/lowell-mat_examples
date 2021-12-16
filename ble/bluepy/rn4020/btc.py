@@ -1,4 +1,5 @@
-from mat.ble.bluepy.examples.examples_utils import get_mac
+
+from ble.bluepy.examples_utils import get_mac
 from mat.ble.bluepy.rn4020_logger_controller import LoggerControllerRN4020
 
 

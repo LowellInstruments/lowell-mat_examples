@@ -1,10 +1,10 @@
 import time
 import bluepy.btle as ble
 
-from mat.ble.bluepy.examples.examples_utils import get_mac
+from ble.bluepy.cc26x2r.file_list import file_list
+from ble.bluepy.examples_utils import get_mac
 from mat.ble.bluepy.rn4020_logger_controller import LoggerControllerRN4020
 from mat.data_converter import default_parameters, DataConverter
-from mat.ble.bluepy.examples.cc26x2r.file_list import file_list
 from mat.utils import PrintColors as PC
 import subprocess as sp
 

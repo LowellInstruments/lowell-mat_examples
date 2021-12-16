@@ -1,7 +1,6 @@
-from mat.ble.ble_macs import MAC_LOGGER_MAT1_0
-from mat.ble.bluepy.examples.xmlrpc.simple import simple
+from ble.ble_macs import MAC_LOGGER_MAT1_0
+from ble.bluepy.xmlrpc.simple import simple
 from mat.ble.bluepy.xc_ble_lowell import XS_BLE_CMD_STS
-
 
 mac = MAC_LOGGER_MAT1_0
 

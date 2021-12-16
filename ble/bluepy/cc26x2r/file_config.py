@@ -1,5 +1,5 @@
+from ble.bluepy.examples_utils import get_mac
 from mat.ble.bluepy.cc26x2r_logger_controller import LoggerControllerCC26X2R
-from mat.ble.bluepy.examples.examples_utils import get_mac
 
 
 def file_config(c: dict, cla=LoggerControllerCC26X2R):

@@ -1,4 +1,4 @@
-from mat.ble.bleak_beta.examples.do2.status import status
+from ble.bleak.do2.status import status
 
 
 if __name__ == "__main__":

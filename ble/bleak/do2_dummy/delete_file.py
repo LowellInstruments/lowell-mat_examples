@@ -1,4 +1,4 @@
-from mat.ble.bleak_beta.examples.do2.delete_file import delete_file
+from ble.bleak.do2.delete_file import delete_file
 
 
 if __name__ == "__main__":

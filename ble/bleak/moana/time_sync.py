@@ -1,4 +1,4 @@
-from mat.ble.ble_macs import MAC_MOANA_0051
+from ble.ble_macs import MAC_MOANA_0051
 from mat.ble.bleak_beta.logger_moana import LoggerMoana
 
 

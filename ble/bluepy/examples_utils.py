@@ -1,4 +1,4 @@
-from mat.ble.ble_macs import *
+from ble.ble_macs import *
 from mat.ble.bluepy.cc26x2r_logger_controller import LoggerControllerCC26X2R
 from mat.ble.bluepy.rn4020_logger_controller import LoggerControllerRN4020
 

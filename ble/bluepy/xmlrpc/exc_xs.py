@@ -1,4 +1,4 @@
-from mat.ble.bluepy.examples.xmlrpc.simple import simple
+from ble.bluepy.xmlrpc.simple import simple
 from mat.ble.bluepy.xc_ble_lowell import XS_BLE_EXC_XS
 
 

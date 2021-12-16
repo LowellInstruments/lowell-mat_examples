@@ -1,7 +1,7 @@
 import os
 import time
 from pathlib import Path
-from mat.ble.bluepy.examples.moana.macs import MAC_MOANA
+from ble.bluepy.moana.macs import MAC_MOANA
 from mat.ble.bluepy.moana_logger_controller import LoggerControllerMoana
 
 

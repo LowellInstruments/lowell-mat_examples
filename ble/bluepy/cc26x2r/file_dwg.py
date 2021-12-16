@@ -1,7 +1,7 @@
 from mat.crc import calculate_local_file_crc
 from mat.data_converter import default_parameters, DataConverter
 from mat.ble.bluepy.cc26x2r_logger_controller import LoggerControllerCC26X2R
-from mat.ble.bluepy.examples.examples_utils import get_mac
+from ble.bluepy.examples_utils import get_mac
 from pathlib import Path
 
 

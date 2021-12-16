@@ -1,4 +1,4 @@
-from mat.ble.bleak_beta.examples.do2.wak import wak
+from ble.bleak.do2.wak import wak
 
 
 if __name__ == "__main__":

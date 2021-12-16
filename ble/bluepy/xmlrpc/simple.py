@@ -1,7 +1,8 @@
 import os
 import queue
-from mat.ble.bluepy.examples.xmlrpc._common import xr_launch_threads
-from mat.ble.bluepy.xc_ble_lowell import XS_BLE_CMD_CONNECT, XS_BLE_BYE, XS_BLE_EXC_LC, XS_BLE_EXC_XS
+
+from ble.bluepy.xmlrpc._common import xr_launch_threads
+from mat.ble.bluepy.xc_ble_lowell import XS_BLE_CMD_CONNECT, XS_BLE_EXC_XS, XS_BLE_EXC_LC, XS_BLE_BYE
 
 
 def simple(c, mac):

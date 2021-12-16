@@ -1,4 +1,4 @@
-from mat.ble.bleak_beta.examples.do2.stp import stop
+from ble.bleak.do2.stp import stop
 
 
 if __name__ == "__main__":

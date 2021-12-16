@@ -1,4 +1,4 @@
-from mat.ble.bleak_beta.examples.do2.sws import sws
+from ble.bleak.do2.sws import sws
 
 
 if __name__ == "__main__":

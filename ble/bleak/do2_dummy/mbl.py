@@ -1,4 +1,4 @@
-from mat.ble.bleak_beta.examples.do2.mbl import mbl
+from ble.bleak.do2.mbl import mbl
 
 
 if __name__ == "__main__":

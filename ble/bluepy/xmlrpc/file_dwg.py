@@ -1,6 +1,6 @@
 import queue
 
-from mat.ble.bluepy.examples.xmlrpc._common import xr_launch_threads
+from ble.bluepy.xmlrpc._common import xr_launch_threads
 from mat.ble.bluepy.xc_ble_lowell import *
 
 

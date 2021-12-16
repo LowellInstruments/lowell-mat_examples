@@ -1,5 +1,5 @@
 import pathlib
-from mat.ble.bleak_beta.examples.do2.convert import cnv
+from ble.bleak.do2.convert import cnv
 
 
 if __name__ == '__main__':

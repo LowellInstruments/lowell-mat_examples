@@ -1,6 +1,6 @@
-from mat.ble.ble_macs import MAC_MOANA_0051
-from mat.ble.bleak_beta.logger_do2 import LoggerDO2
+from ble.ble_macs import MAC_MOANA_0051
 from mat.ble.bleak_beta.logger_do2_dummy import LoggerDO2Dummy
+from mat.ble.bleak_beta.logger_do2 import LoggerDO2
 
 
 def battery(dummy=False):

@@ -1,4 +1,4 @@
-from mat.ble.bleak_beta.examples.do2.wli import wli
+from ble.bleak.do2.wli import wli
 
 
 if __name__ == "__main__":

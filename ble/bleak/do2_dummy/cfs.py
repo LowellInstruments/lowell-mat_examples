@@ -1,4 +1,4 @@
-from mat.ble.bleak_beta.examples.do2.cfs import cfs
+from ble.bleak.do2.cfs import cfs
 
 
 if __name__ == "__main__":

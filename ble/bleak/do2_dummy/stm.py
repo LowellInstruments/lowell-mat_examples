@@ -1,4 +1,4 @@
-from mat.ble.bleak_beta.examples.do2.stm import set_time
+from ble.bleak.do2.stm import set_time
 
 
 if __name__ == "__main__":

@@ -1,5 +1,5 @@
 import time
-from mat.ble.ble_macs import MAC_LOGGER_MAT1_0
+from ble.ble_macs import MAC_LOGGER_MAT1_0
 from mat.ble.bleak_beta.logger_mat import LoggerMAT
 from mat.ble_utils_shared import utils_mat_convert_data
 

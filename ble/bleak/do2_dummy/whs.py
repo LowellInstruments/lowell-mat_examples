@@ -1,4 +1,4 @@
-from mat.ble.bleak_beta.examples.do2.whs import whs
+from ble.bleak.do2.whs import whs
 
 
 if __name__ == "__main__":
