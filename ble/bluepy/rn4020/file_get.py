@@ -2,7 +2,7 @@ import time
 import bluepy.btle as ble
 
 from ble.bluepy.cc26x2r.file_list import file_list
-from ble.bluepy.examples_utils import get_mac
+from ble.ble_macs import get_mac
 from mat.ble.bluepy.rn4020_logger_controller import LoggerControllerRN4020
 from mat.data_converter import default_parameters, DataConverter
 from mat.utils import PrintColors as PC

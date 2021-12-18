@@ -1,12 +1,13 @@
 import time
-from ble.ble_macs import MAC_LOGGER_MAT1_0
+from ble.ble_macs import MAC_LOGGER_MAT1_0, get_mac
 from mat.ble.bleak_beta.logger_mat import LoggerMAT
 from mat.ble_utils_shared import utils_mat_convert_data
 
 
 def get_file():
-    mac = MAC_LOGGER_MAT1_0
-    lc = LoggerMAT()
+    cla = LoggerMAT
+    mac = get_mac(cla)
+    lc = cla()
     lc.ble_connect(mac)
 
     filename = '2011605_TP_1m_(0).lid'
