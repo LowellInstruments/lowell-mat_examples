@@ -1,4 +1,5 @@
 from ble.bleak.do2.config import config
+from mat.ble.bleak_beta.logger_do2_dummy import LoggerDO2Dummy
 
 
 cfg = {
@@ -15,4 +16,4 @@ cfg = {
 
 
 if __name__ == "__main__":
-    config(cfg, dummy=True)
+    config(cfg, LoggerDO2Dummy)

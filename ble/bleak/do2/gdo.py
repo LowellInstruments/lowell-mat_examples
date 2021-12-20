@@ -1,12 +1,10 @@
-from ble.ble_macs import MAC_LOGGER_DO2_0_MODBUS
+from ble.ble_macs import get_mac
 from mat.ble.bleak_beta.logger_do2 import LoggerDO2
-from mat.ble.bleak_beta.logger_do2_dummy import LoggerDO2Dummy
 
 
-def gdo(dummy=False):
-    mac = MAC_LOGGER_DO2_0_MODBUS
-    lc_class = LoggerDO2Dummy if dummy else LoggerDO2
-    lc = lc_class()
+def gdo(cla):
+    mac = get_mac(cla)
+    lc = cla()
     lc.ble_connect(mac)
     lc.ble_cmd_gdo()
     lc.ble_disconnect()
@@ -14,4 +12,4 @@ def gdo(dummy=False):
 
 
 if __name__ == "__main__":
-    gdo()
+    gdo(LoggerDO2)

@@ -1,16 +1,12 @@
 import pathlib
 import time
-
-from ble.ble_macs import MAC_LOGGER_DO2_0_MODBUS
+from ble.ble_macs import get_mac
 from mat.ble.bleak_beta.logger_do2 import LoggerDO2
-from mat.ble.bleak_beta.logger_do2_dummy import LoggerDO2Dummy
-from ble.bleak.do2.convert import cnv
 
 
-def download(file_name, file_size, dummy=False):
-    mac = MAC_LOGGER_DO2_0_MODBUS
-    lc_class = LoggerDO2Dummy if dummy else LoggerDO2
-    lc = lc_class()
+def download(file_name, file_size, cla):
+    mac = get_mac(cla)
+    lc = cla()
     lc.ble_connect(mac)
 
     # maybe slow it down
@@ -33,9 +29,9 @@ def download(file_name, file_size, dummy=False):
     with open(s, 'wb') as f:
         f.write(data)
 
-    # try to convert it in case of real file
-    if not dummy:
-        cnv(s)
+    # # try to convert it in case of real file
+    # if not dummy:
+    #     cnv(s)
 
     lc.ble_disconnect()
     lc.ble_bye()
@@ -44,5 +40,5 @@ def download(file_name, file_size, dummy=False):
 if __name__ == "__main__":
     name = '2006671_kim_20210923_115655.lid'
     size = 7573
-    download(name, size)
+    download(name, size, LoggerDO2)
 

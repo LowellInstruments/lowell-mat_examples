@@ -1,12 +1,10 @@
-from ble.ble_macs import MAC_LOGGER_DO2_0_MODBUS
+from ble.ble_macs import get_mac
 from mat.ble.bleak_beta.logger_do2 import LoggerDO2
-from mat.ble.bleak_beta.logger_do2_dummy import LoggerDO2Dummy
 
 
-def delete_file(file_name, dummy=False):
-    mac = MAC_LOGGER_DO2_0_MODBUS
-    lc_class = LoggerDO2Dummy if dummy else LoggerDO2
-    lc = lc_class()
+def delete_file(file_name, cla):
+    mac = get_mac(cla)
+    lc = cla()
     lc.ble_connect(mac)
     lc.ble_cmd_del(file_name)
     lc.ble_disconnect()
@@ -14,4 +12,4 @@ def delete_file(file_name, dummy=False):
 
 
 if __name__ == "__main__":
-    delete_file('dummy_750.lid')
+    delete_file('dummy_750.lid', LoggerDO2)

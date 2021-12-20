@@ -1,6 +1,5 @@
-from ble.ble_macs import MAC_LOGGER_DO2_0_MODBUS
+from ble.ble_macs import get_mac
 from mat.ble.bleak_beta.logger_do2 import LoggerDO2
-from mat.ble.bleak_beta.logger_do2_dummy import LoggerDO2Dummy
 
 
 cfg = {
@@ -18,10 +17,9 @@ cfg = {
 }
 
 
-def config(s_as_dict, dummy=False):
-    mac = MAC_LOGGER_DO2_0_MODBUS
-    lc_class = LoggerDO2Dummy if dummy else LoggerDO2
-    lc = lc_class()
+def config(s_as_dict, cla):
+    mac = get_mac(cla)
+    lc = cla()
     lc.ble_connect(mac)
     lc.ble_cmd_stp()
     lc.ble_cmd_cfg(s_as_dict)
@@ -31,4 +29,4 @@ def config(s_as_dict, dummy=False):
 
 
 if __name__ == "__main__":
-    config(cfg)
+    config(cfg, LoggerDO2)

@@ -1,12 +1,10 @@
-from ble.ble_macs import MAC_MOANA_0051
-from mat.ble.bleak_beta.logger_do2_dummy import LoggerDO2Dummy
+from ble.ble_macs import get_mac
 from mat.ble.bleak_beta.logger_do2 import LoggerDO2
 
 
-def battery(dummy=False):
-    mac = MAC_MOANA_0051
-    lc_class = LoggerDO2Dummy if dummy else LoggerDO2
-    lc = lc_class()
+def battery(cla):
+    mac = get_mac(cla)
+    lc = cla()
     lc.ble_connect(mac)
     lc.ble_cmd_bat()
     lc.ble_disconnect()
@@ -14,4 +12,4 @@ def battery(dummy=False):
 
 
 if __name__ == "__main__":
-    battery()
+    battery(LoggerDO2)
