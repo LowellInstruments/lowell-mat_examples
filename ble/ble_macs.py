@@ -23,7 +23,7 @@ def get_mac(cla, forced=''):
     if cla is LoggerControllerCC26X2R:
         return MAC_LOGGER_DO2_1_MODBUS
     if cla is LoggerControllerRN4020:
-        return MAC_LOGGER_MAT1_1
+        return MAC_LOGGER_MAT1_0
 
     # -------
     # bleak
