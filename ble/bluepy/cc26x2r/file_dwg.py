@@ -1,17 +1,14 @@
-import time
-from ble.bluepy.cc26x2r.file_list import file_list
-from ble.bluepy.cc26x2r.status_stop import stop
+from ble.ble_macs import get_mac
 from mat.crc import calculate_local_file_crc
 from mat.data_converter import default_parameters, DataConverter
 from mat.ble.bluepy.cc26x2r_logger_controller import LoggerControllerCC26X2R
-from ble.ble_macs import get_mac
 from pathlib import Path
 
 
 def file_convert(path):
     try:
         assert path.endswith('.lid')
-        print('\t\tConverting: {}'.format(path))
+        print('\t\tConverting: {} --> '.format(path), end='')
         parameters = default_parameters()
         converter = DataConverter(path, parameters)
         converter.convert()
@@ -20,9 +17,9 @@ def file_convert(path):
         print(ex)
 
 
-def file_dwg(file_name, file_size: int, cla=LoggerControllerCC26X2R):
+def file_dwg(file_name, file_size: int, cla=LoggerControllerCC26X2R, forced_mac=''):
 
-    mac = get_mac(cla)
+    mac = get_mac(cla) if not forced_mac else forced_mac
     lc = cla(mac)
 
     if not lc.open():
@@ -63,13 +60,17 @@ def file_dwg(file_name, file_size: int, cla=LoggerControllerCC26X2R):
 
 
 if __name__ == '__main__':
-    # download one
-    # stop()
-    # file_dwg('a.lid', 1234)
 
-    # download all
-    stop()
-    fl = file_list()
-    for name, size in fl.items():
-        file_dwg(name, size)
-        time.sleep(3)
+    #file_size = 2656
+    #file_name = '1234567_low_20220110_143738.lid'
+    #f_mac = '04:EE:03:73:87:22'
+
+    #file_size = 2656
+    #file_name = '1234567_low_20220110_143656.lid'
+    #f_mac = '04:EE:03:73:87:8C'
+
+    file_size = 2662
+    file_name = '1234567_low_20220110_143702.lid'
+    f_mac = '04:EE:03:73:88:1D'
+
+    file_dwg(file_name, file_size, forced_mac=f_mac)
