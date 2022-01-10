@@ -1,3 +1,4 @@
+from mat.ble.bleak_beta.logger_do2 import LoggerDO2
 from mat.ble.bleak_beta.logger_mat import LoggerMAT
 from mat.ble.bluepy.cc26x2r_logger_controller import LoggerControllerCC26X2R
 from mat.ble.bluepy.rn4020_logger_controller import LoggerControllerRN4020
@@ -30,6 +31,8 @@ def get_mac(cla, forced=''):
     # -------
     if cla is LoggerMAT:
         return MAC_LOGGER_MAT1_0
+    if cla is LoggerDO2:
+        return MAC_LOGGER_DO2_0_SDI12
 
     print('class is {}'.format(cla))
 
