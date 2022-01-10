@@ -1,5 +1,6 @@
 import time
 from ble.bluepy.cc26x2r.file_list import file_list
+from ble.bluepy.cc26x2r.status_stop import stop
 from mat.crc import calculate_local_file_crc
 from mat.data_converter import default_parameters, DataConverter
 from mat.ble.bluepy.cc26x2r_logger_controller import LoggerControllerCC26X2R
@@ -63,9 +64,11 @@ def file_dwg(file_name, file_size: int, cla=LoggerControllerCC26X2R):
 
 if __name__ == '__main__':
     # download one
+    # stop()
     # file_dwg('a.lid', 1234)
 
     # download all
+    stop()
     fl = file_list()
     for name, size in fl.items():
         file_dwg(name, size)
