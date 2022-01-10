@@ -9,17 +9,17 @@ def measure_oxygen(cla=LoggerControllerCC26X2R):
     lc = cla(mac)
 
     if lc.open():
-        rv = lc.ble_cmd_gdo()
-        print('> DO saturation:  {}.{} mg/l'.format(rv[0][:2], rv[0][2:]))
-        print('> DO percentage:  {}.{} %'.format(rv[1][:2], rv[1][2:]))
-        print('> DO temperature: {}.{} C'.format(rv[2][:2], rv[2][2:]))
-        print('\n')
+        while 1:
+            rv = lc.ble_cmd_gdo()
+            print('> DO saturation:  {}.{} mg/l'.format(rv[0][:2], rv[0][2:]))
+            print('> DO percentage:  {}.{} %'.format(rv[1][:2], rv[1][2:]))
+            print('> DO temperature: {}.{} C'.format(rv[2][:2], rv[2][2:]))
+            print('\n')
+            time.sleep(10)
     else:
         print('{} connection error'.format(__name__))
     lc.close()
 
 
 if __name__ == '__main__':
-    while 1:
-        measure_oxygen()
-        time.sleep(10)
+    measure_oxygen()
