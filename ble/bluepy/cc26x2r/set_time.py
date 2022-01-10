@@ -1,3 +1,4 @@
+from ble.bluepy.cc26x2r.status_stop import stop
 from mat.ble.bluepy.cc26x2r_logger_controller import LoggerControllerCC26X2R
 from ble.ble_macs import get_mac
 
@@ -16,4 +17,5 @@ def set_time(cla=LoggerControllerCC26X2R):
 
 
 if __name__ == '__main__':
+    stop()
     set_time()

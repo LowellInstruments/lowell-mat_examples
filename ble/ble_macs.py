@@ -21,7 +21,7 @@ def get_mac(cla, forced=''):
     # bluepy
     # -------
     if cla is LoggerControllerCC26X2R:
-        return MAC_LOGGER_DO2_1_MODBUS
+        return MAC_LOGGER_DO2_0_SDI12
     if cla is LoggerControllerRN4020:
         return MAC_LOGGER_MAT1_0
 

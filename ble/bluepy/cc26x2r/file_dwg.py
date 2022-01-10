@@ -1,3 +1,5 @@
+import time
+from ble.bluepy.cc26x2r.file_list import file_list
 from mat.crc import calculate_local_file_crc
 from mat.data_converter import default_parameters, DataConverter
 from mat.ble.bluepy.cc26x2r_logger_controller import LoggerControllerCC26X2R
@@ -8,7 +10,7 @@ from pathlib import Path
 def file_convert(path):
     try:
         assert path.endswith('.lid')
-        print('\t\tConverting: {} --> '.format(path), end='')
+        print('\t\tConverting: {}'.format(path))
         parameters = default_parameters()
         converter = DataConverter(path, parameters)
         converter.convert()
@@ -60,4 +62,11 @@ def file_dwg(file_name, file_size: int, cla=LoggerControllerCC26X2R):
 
 
 if __name__ == '__main__':
-    file_dwg('50.lid', 102400)
+    # download one
+    # file_dwg('a.lid', 1234)
+
+    # download all
+    fl = file_list()
+    for name, size in fl.items():
+        file_dwg(name, size)
+        time.sleep(3)

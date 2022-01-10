@@ -10,6 +10,7 @@ def file_list(cla=LoggerControllerCC26X2R):
     if lc.open():
         rv = lc.ble_cmd_dir_ext('*')
         print('list all files: {}\n'.format(rv))
+        return rv
     else:
         print('{} connection error'.format(__name__))
     lc.close()
