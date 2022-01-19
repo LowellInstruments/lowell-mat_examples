@@ -31,9 +31,9 @@ def full_demo(fol):
         return
 
     lc.auth()
-    rv = lc.file_info()
 
-    name_csv_moana = rv['FileName']
+    name_csv_moana = lc.file_info()
+
     print('downloading file {}...'.format(name_csv_moana))
     data = lc.file_get()
 
@@ -55,9 +55,9 @@ def full_demo(fol):
 
     # comment next 2 -> repetitive download tests
     # uncomment them -> re-run logger
-    time.sleep(1)
-    if not lc.file_clear():
-        print('error file_clear')
+    #time.sleep(1)
+    #if not lc.file_clear():
+    #    print('error file_clear')
 
     lc.close()
 

@@ -61,16 +61,8 @@ def file_dwg(file_name, file_size: int, cla=LoggerControllerCC26X2R, forced_mac=
 
 if __name__ == '__main__':
 
-    #file_size = 2656
-    #file_name = '1234567_low_20220110_143738.lid'
-    #f_mac = '04:EE:03:73:87:22'
-
-    #file_size = 2656
-    #file_name = '1234567_low_20220110_143656.lid'
-    #f_mac = '04:EE:03:73:87:8C'
-
-    file_size = 2662
-    file_name = '1234567_low_20220110_143702.lid'
-    f_mac = '04:EE:03:73:88:1D'
+    file_size = 52612
+    file_name = '1234567_low_20220113_1550019.lid'
+    f_mac = '60:77:71:22:c8:6f'
 
     file_dwg(file_name, file_size, forced_mac=f_mac)
