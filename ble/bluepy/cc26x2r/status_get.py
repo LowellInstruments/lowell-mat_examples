@@ -17,4 +17,3 @@ def status(cla=LoggerControllerCC26X2R):
 
 if __name__ == '__main__':
     status()
-

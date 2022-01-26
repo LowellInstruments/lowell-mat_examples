@@ -12,6 +12,7 @@ MAC_LOGGER_MAT1_1 = '00:1e:c0:6c:76:0b'
 MAC_LOGGER_MAT1_2 = '00:1e:c0:3d:7a:f2'
 MAC_MOANA_0051 = 'C9:3C:F8:37:E9:6A'
 MAC_LOGGER_DO2_DUMMY = '11:22:33:44:55:D0'
+MAC_LOGGER_TAP_PROTOTYPE = '60:77:71:22:C8:00'
 
 
 def get_mac(cla, forced=''):
@@ -22,7 +23,7 @@ def get_mac(cla, forced=''):
     # bluepy
     # -------
     if cla is LoggerControllerCC26X2R:
-        return MAC_LOGGER_DO2_0_SDI12
+        return MAC_LOGGER_TAP_PROTOTYPE
     if cla is LoggerControllerRN4020:
         return MAC_LOGGER_MAT1_0
 

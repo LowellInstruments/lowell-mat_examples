@@ -1,3 +1,5 @@
+import time
+
 from ble.ble_macs import get_mac
 from mat.crc import calculate_local_file_crc
 from mat.data_converter import default_parameters, DataConverter
@@ -29,19 +31,25 @@ def file_dwg(file_name, file_size: int, cla=LoggerControllerCC26X2R, forced_mac=
     rv = lc.ble_cmd_stp()
     print('STOP {}'.format(rv))
 
-    rv = lc.ble_cmd_slw_ensure('OFF')
-    print('SLW is {}'.format(rv))
+    # set the mobile level
+    lc.ble_cmd_mbl_ensure('0')
 
+    print('downloading', file_name, '...')
     rv = lc.ble_cmd_dwg(file_name)
     print('DWG {}'.format(rv))
 
+    start = time.time()
     rv = lc.ble_cmd_dwl(file_size)
     path = str(Path.home() / 'Downloads' / file_name)
+    end = time.time()
 
     if not rv:
         print('DWL error')
 
     else:
+        speed = (file_size / (end - start))
+        print('speed {} KBps'.format(speed))
+
         with open(path, 'wb') as f:
             f.write(rv)
             print('file downloaded to {}'.format(path))
@@ -61,8 +69,4 @@ def file_dwg(file_name, file_size: int, cla=LoggerControllerCC26X2R, forced_mac=
 
 if __name__ == '__main__':
 
-    file_size = 52612
-    file_name = '1234567_low_20220113_1550019.lid'
-    f_mac = '60:77:71:22:c8:6f'
-
-    file_dwg(file_name, file_size, forced_mac=f_mac)
+    file_dwg('dummy_2166.lid', 167936)
