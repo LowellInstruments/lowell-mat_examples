@@ -10,6 +10,10 @@ def deploy(c_d: dict, cla=LoggerControllerCC26X2R):
     if lc.open():
         rv = lc.ble_cmd_stp()
         print('> stop: {}'.format(rv))
+        rv = lc.ble_cmd_stm()
+        print('> set time: {}'.format(rv))
+        rv = lc.ble_cmd_gtm()
+        print('> get time: {}'.format(rv))
         rv = lc.ble_cmd_frm()
         print('> format: {}'.format(rv))
         rv = lc.ble_cmd_sts()
@@ -33,7 +37,7 @@ def deploy(c_d: dict, cla=LoggerControllerCC26X2R):
 
 
 if __name__ == '__main__':
-    d = {
+    cfg_do = {
         "DFN": "low",
         "TMP": 0, "PRS": 0,
         "DOS": 1, "DOP": 1, "DOT": 1,
@@ -44,4 +48,18 @@ if __name__ == '__main__':
         "ETM": "2030-11-12 12:14:20",
         "LED": 1
     }
+    cfg_mat = {
+        "DFN": "low",
+        "TMP": 1, "PRS": 0,
+        "DOS": 0, "DOP": 0, "DOT": 0,
+        "TRI": 10, "ORI": 10, "DRI": 30,
+        "PRR": 1,
+        "PRN": 1,
+        "STM": "2012-11-12 12:14:00",
+        "ETM": "2030-11-12 12:14:20",
+        "LED": 1
+    }
+
+    # d = cfg_do
+    d = cfg_mat
     deploy(d)

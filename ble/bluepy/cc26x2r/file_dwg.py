@@ -69,4 +69,4 @@ def file_dwg(file_name, file_size: int, cla=LoggerControllerCC26X2R, forced_mac=
 
 if __name__ == '__main__':
 
-    file_dwg('dummy_2166.lid', 167936)
+    file_dwg('1234567_low_20220127_115237.lid', 2178)
