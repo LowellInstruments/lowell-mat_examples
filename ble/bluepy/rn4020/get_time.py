@@ -1,6 +1,18 @@
+from _macs import get_mac
 from mat.ble.bluepy.rn4020_logger_controller import LoggerControllerRN4020
-from ble.bluepy.cc26x2r.get_time import get_time
+
+
+def get_time():
+    mac = get_mac()
+    lc = LoggerControllerRN4020(mac)
+
+    if lc.open():
+        rv = lc.ble_cmd_gtm()
+        print('get time', rv)
+    else:
+        print('{} connection error'.format(__name__))
+    lc.close()
 
 
 if __name__ == '__main__':
-    get_time(cla=LoggerControllerRN4020)
+    get_time()

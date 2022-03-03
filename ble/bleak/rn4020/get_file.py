@@ -1,13 +1,13 @@
 import time
 from pathlib import Path
-from ble.ble_macs import get_mac
+from _macs import get_mac
 from mat.ble.bleak_beta.logger_mat import LoggerMAT
 from mat.ble_utils_shared import utils_mat_convert_data
 
 
 def get_file():
     cla = LoggerMAT
-    mac = get_mac(cla)
+    mac = get_mac()
     lc = cla()
     lc.ble_connect(mac)
 

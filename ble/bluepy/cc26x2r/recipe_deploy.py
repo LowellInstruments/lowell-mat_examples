@@ -1,11 +1,10 @@
 from mat.ble.bluepy.cc26x2r_logger_controller import LoggerControllerCC26X2R
-from ble.ble_macs import get_mac
+from _macs import get_mac
 
 
-def deploy(c_d: dict, cla=LoggerControllerCC26X2R):
+def deploy(c_d: dict, mac):
 
-    mac = get_mac(cla)
-    lc = cla(mac)
+    lc = LoggerControllerCC26X2R(mac)
 
     if lc.open():
         rv = lc.ble_cmd_stp()
@@ -62,4 +61,6 @@ if __name__ == '__main__':
 
     # d = cfg_do
     d = cfg_mat
-    deploy(d)
+    list_of_macs = [get_mac(), ]
+    for each_mac in list_of_macs:
+        deploy(d, each_mac)

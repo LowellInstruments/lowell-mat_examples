@@ -1,10 +1,10 @@
-from ble.ble_macs import get_mac
+from _macs import get_mac
 from mat.ble.bleak_beta.logger_do2 import LoggerDO2
 
 
-def mbl(cla):
-    mac = get_mac(cla)
-    lc = cla()
+def mbl():
+    mac = get_mac()
+    lc = LoggerDO2()
     lc.ble_connect(mac)
     lc.ble_cmd_mbl()
     lc.ble_disconnect()
@@ -12,4 +12,4 @@ def mbl(cla):
 
 
 if __name__ == "__main__":
-    mbl(LoggerDO2)
+    mbl()

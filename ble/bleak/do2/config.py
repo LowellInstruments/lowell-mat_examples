@@ -1,4 +1,4 @@
-from ble.ble_macs import get_mac
+from _macs import get_mac
 from mat.ble.bleak_beta.logger_do2 import LoggerDO2
 
 
@@ -17,9 +17,9 @@ cfg = {
 }
 
 
-def config(s_as_dict, cla):
-    mac = get_mac(cla)
-    lc = cla()
+def config(s_as_dict):
+    mac = get_mac()
+    lc = LoggerDO2()
     lc.ble_connect(mac)
     lc.ble_cmd_stp()
     lc.ble_cmd_cfg(s_as_dict)
@@ -29,4 +29,4 @@ def config(s_as_dict, cla):
 
 
 if __name__ == "__main__":
-    config(cfg, LoggerDO2)
+    config(cfg)

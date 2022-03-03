@@ -1,6 +1,6 @@
 import time
 
-from ble.ble_macs import get_mac
+from _macs import get_mac
 from mat.crc import calculate_local_file_crc
 from mat.data_converter import default_parameters, DataConverter
 from mat.ble.bluepy.cc26x2r_logger_controller import LoggerControllerCC26X2R
@@ -19,10 +19,10 @@ def file_convert(path):
         print(ex)
 
 
-def file_dwg(file_name, file_size: int, cla=LoggerControllerCC26X2R, forced_mac=''):
+def file_dwg(file_name, file_size: int, forced_mac=''):
 
-    mac = get_mac(cla) if not forced_mac else forced_mac
-    lc = cla(mac)
+    mac = get_mac() if not forced_mac else forced_mac
+    lc = LoggerControllerCC26X2R(mac)
 
     if not lc.open():
         print('{} connection error'.format(__name__))

@@ -1,10 +1,10 @@
-from ble.ble_macs import get_mac
+from _macs import get_mac
 from mat.ble.bleak_beta.logger_mat import LoggerMAT
 
 
 def btc():
     cla = LoggerMAT
-    mac = get_mac(cla)
+    mac = get_mac()
     lc = cla()
     lc.ble_connect(mac)
     lc.ble_cmd_btc()

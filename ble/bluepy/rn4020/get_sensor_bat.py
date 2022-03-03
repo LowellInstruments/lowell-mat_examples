@@ -1,11 +1,11 @@
-from ble.ble_macs import get_mac
+from _macs import get_mac
 from mat.ble.bluepy.rn4020_logger_controller import LoggerControllerRN4020
 
 
-def get_sensor_bat(cla=LoggerControllerRN4020):
+def get_sensor_bat():
 
-    mac = get_mac(cla)
-    lc = cla(mac)
+    mac = get_mac()
+    lc = LoggerControllerRN4020(mac)
 
     if lc.open():
         rv = lc.ble_cmd_bat()

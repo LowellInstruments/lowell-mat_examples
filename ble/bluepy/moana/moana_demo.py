@@ -1,11 +1,10 @@
 import os
-import time
 from pathlib import Path
-from ble.bluepy.moana.macs import MAC_MOANA
+from _macs import get_mac
 from mat.ble.bluepy.moana_logger_controller import LoggerControllerMoana
 
 
-mac = MAC_MOANA
+mac = get_mac()
 
 
 def just_delete_file_n_time_sync():
@@ -55,8 +54,8 @@ def full_demo(fol):
 
     # comment next 2 -> repetitive download tests
     # uncomment them -> re-run logger
-    #time.sleep(1)
-    #if not lc.file_clear():
+    # time.sleep(1)
+    # if not lc.file_clear():
     #    print('error file_clear')
 
     lc.close()

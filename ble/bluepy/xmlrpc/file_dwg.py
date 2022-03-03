@@ -4,7 +4,7 @@ from ble.bluepy.xmlrpc._common import xr_launch_threads
 from mat.ble.bluepy.xc_ble_lowell import *
 
 
-def dwg_file(mac, s, n, dummy=False):
+def dwg_file(mac, s, n):
     q_cmd = queue.Queue()
     q_ans = queue.Queue()
     xr_launch_threads(q_cmd, q_ans)
@@ -29,4 +29,5 @@ def dwg_file(mac, s, n, dummy=False):
 if __name__ == '__main__':
     name = 'dummy_16.lid'
     size = 167936
-    dwg_file(name, size)
+    my_mac = 'whatever'
+    dwg_file(my_mac, name, size)

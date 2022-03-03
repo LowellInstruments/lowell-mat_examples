@@ -1,8 +1,6 @@
 import time
 import bluepy.btle as ble
-
-from ble.bluepy.cc26x2r.file_list import file_list
-from ble.ble_macs import get_mac
+from _macs import get_mac
 from mat.ble.bluepy.rn4020_logger_controller import LoggerControllerRN4020
 from mat.data_converter import default_parameters, DataConverter
 from mat.utils import PrintColors as PC
@@ -53,7 +51,7 @@ def _get_n_convert(f_name, f_size):
     global dl_ok
     global dl_attempts
 
-    mac = get_mac(LoggerControllerRN4020)
+    mac = get_mac()
     lc = LoggerControllerRN4020(mac)
 
     try:
@@ -88,7 +86,6 @@ def main():
     dl_ok = 0
     dl_n_cnv_ok = 0
 
-    file_list(cla=LoggerControllerRN4020)
     name, size = '2110407_T&P_(0).lid', 33048
 
     n = 1

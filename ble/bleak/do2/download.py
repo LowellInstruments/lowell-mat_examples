@@ -1,12 +1,12 @@
 import pathlib
 import time
-from ble.ble_macs import get_mac
+from _macs import get_mac
 from mat.ble.bleak_beta.logger_do2 import LoggerDO2
 
 
-def download(file_name, file_size, cla):
-    mac = get_mac(cla)
-    lc = cla()
+def download(file_name, file_size):
+    mac = get_mac()
+    lc = LoggerDO2()
     lc.ble_connect(mac)
 
     # maybe slow it down
@@ -40,5 +40,5 @@ def download(file_name, file_size, cla):
 if __name__ == "__main__":
     name = '2006671_kim_20210923_115655.lid'
     size = 7573
-    download(name, size, LoggerDO2)
+    download(name, size)
 

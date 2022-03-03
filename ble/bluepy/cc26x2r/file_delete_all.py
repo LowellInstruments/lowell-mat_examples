@@ -2,13 +2,13 @@ import time
 
 from ble.bluepy.cc26x2r.file_list import file_list
 from mat.ble.bluepy.cc26x2r_logger_controller import LoggerControllerCC26X2R
-from ble.ble_macs import get_mac
+from _macs import get_mac
 
 
-def file_del_all(d: dict, cla=LoggerControllerCC26X2R):
+def file_del_all(d: dict):
 
-    mac = get_mac(cla)
-    lc = cla(mac)
+    mac = get_mac()
+    lc = LoggerControllerCC26X2R(mac)
 
     if lc.open():
         # d: {'1234567_low_20220110_112843.lid': 2182, 'MAT.cfg': 188}

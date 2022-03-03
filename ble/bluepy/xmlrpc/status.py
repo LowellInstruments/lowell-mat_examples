@@ -1,8 +1,9 @@
-from ble.ble_macs import MAC_LOGGER_MAT1_0
+from _macs import get_mac
 from ble.bluepy.xmlrpc.simple import simple
 from mat.ble.bluepy.xc_ble_lowell import XS_BLE_CMD_STS
 
-mac = MAC_LOGGER_MAT1_0
+
+mac = get_mac()
 
 
 def status():
