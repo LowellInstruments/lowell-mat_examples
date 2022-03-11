@@ -8,6 +8,8 @@ def file_format():
     lc = LoggerControllerCC26X2R(mac)
 
     if lc.open():
+        rv = lc.ble_cmd_stp()
+        print('stop', rv)
         rv = lc.ble_cmd_frm()
         print('format file system: {}'.format(rv))
     else:
