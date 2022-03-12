@@ -19,9 +19,10 @@ def file_convert(path):
         print(ex)
 
 
-def file_dwg(file_name, file_size: int, forced_mac=''):
+def file_dwg(file_name, file_size: int):
 
-    mac = get_mac() if not forced_mac else forced_mac
+    # mac = get_mac()
+    mac = '60:77:71:22:C8:49'
     lc = LoggerControllerCC26X2R(mac)
 
     if not lc.open():
@@ -48,7 +49,7 @@ def file_dwg(file_name, file_size: int, forced_mac=''):
 
     else:
         speed = (file_size / (end - start))
-        print('speed {} KBps'.format(speed))
+        print('speed {} KBps'.format(speed / 1000))
 
         with open(path, 'wb') as f:
             f.write(rv)
@@ -69,4 +70,4 @@ def file_dwg(file_name, file_size: int, forced_mac=''):
 
 if __name__ == '__main__':
 
-    file_dwg('1234567_low_20220127_115237.lid', 2178)
+    file_dwg('1234567_kaz_20220311_194846.lid', 12970)

@@ -4,10 +4,13 @@ from _macs import get_mac
 
 def file_list():
 
-    mac = get_mac()
+    # mac = get_mac()
+    mac = '60:77:71:22:C8:49'
     lc = LoggerControllerCC26X2R(mac)
 
     if lc.open():
+        rv = lc.ble_cmd_stp()
+        print('stop', rv)
         rv = lc.ble_cmd_dir_ext('*')
         print('list all files: {}\n'.format(rv))
         return rv

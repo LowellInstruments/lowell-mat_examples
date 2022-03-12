@@ -5,7 +5,8 @@ from _macs import get_mac
 
 def measure_oxygen(pre_stp=False):
 
-    mac = get_mac()
+    # mac = get_mac()
+    mac = '60:77:71:22:C8:49'
     lc = LoggerControllerCC26X2R(mac)
 
     if lc.open():
@@ -27,4 +28,4 @@ def measure_oxygen(pre_stp=False):
 
 
 if __name__ == '__main__':
-    measure_oxygen(pre_stp=True)
+    measure_oxygen(pre_stp=False)
