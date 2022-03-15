@@ -70,4 +70,4 @@ def file_dwg(file_name, file_size: int):
 
 if __name__ == '__main__':
 
-    file_dwg('1234567_kaz_20220311_194846.lid', 12970)
+    file_dwg('1234567_kaz_20220314_180935.lid', 16240)

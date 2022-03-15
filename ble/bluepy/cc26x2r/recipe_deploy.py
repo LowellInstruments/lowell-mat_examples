@@ -43,7 +43,7 @@ def cfg_do():
         "DFN": "kaz",
         "TMP": 0, "PRS": 0,
         "DOS": 1, "DOP": 1, "DOT": 1,
-        "TRI": 10, "ORI": 10, "DRI": 30,
+        "TRI": 10, "ORI": 10, "DRI": 20,
         "PRR": 1,
         "PRN": 1,
         "STM": "2012-11-12 12:14:00",

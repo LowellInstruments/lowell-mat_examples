@@ -12,6 +12,9 @@ def measure_oxygen(pre_stp=False):
     if lc.open():
         for i in range(1):
 
+            rv = lc.ble_cmd_sts()
+            print('STS', rv)
+
             if pre_stp:
                 rv = lc.ble_cmd_stp()
                 print('stop', rv)
@@ -21,7 +24,6 @@ def measure_oxygen(pre_stp=False):
             print('> DO percentage:  {}.{} %'.format(rv[1][:2], rv[1][2:]))
             print('> DO temperature: {}.{} C'.format(rv[2][:2], rv[2][2:]))
             print('\n')
-            time.sleep(5)
     else:
         print('{} connection error'.format(__name__))
     lc.close()
