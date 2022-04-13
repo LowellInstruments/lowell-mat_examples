@@ -4,7 +4,8 @@ from _macs import get_mac
 
 def run():
 
-    mac = get_mac()
+    # mac = get_mac()
+    mac = '60:77:71:22:C8:6f'
     lc = LoggerControllerCC26X2R(mac)
 
     if lc.open():

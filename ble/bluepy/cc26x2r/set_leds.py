@@ -4,7 +4,9 @@ from _macs import get_mac
 
 def blink():
 
-    mac = get_mac()
+    # mac = get_mac()
+    mac = '60:77:71:22:C9:cd'
+
     lc = LoggerControllerCC26X2R(mac)
 
     if lc.open():

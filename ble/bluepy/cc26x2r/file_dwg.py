@@ -1,10 +1,9 @@
 import time
-
-from _macs import get_mac
 from mat.crc import calculate_local_file_crc
-from mat.data_converter import default_parameters, DataConverter
 from mat.ble.bluepy.cc26x2r_logger_controller import LoggerControllerCC26X2R
 from pathlib import Path
+
+from mat.data_converter import default_parameters, DataConverter
 
 
 def file_convert(path):
@@ -15,6 +14,7 @@ def file_convert(path):
         converter = DataConverter(path, parameters)
         converter.convert()
         return True
+
     except Exception as ex:
         print(ex)
 
@@ -22,7 +22,11 @@ def file_convert(path):
 def file_dwg(file_name, file_size: int):
 
     # mac = get_mac()
-    mac = '60:77:71:22:C8:49'
+    # mac = '60:77:71:22:C8:49'
+    # mac = '60:77:71:22:C9:CD'
+    mac = '60:77:71:22:C8:6F'
+    # mac = '60:77:71:22:CA:3A'
+
     lc = LoggerControllerCC26X2R(mac)
 
     if not lc.open():
@@ -31,9 +35,6 @@ def file_dwg(file_name, file_size: int):
 
     rv = lc.ble_cmd_stp()
     print('STOP {}'.format(rv))
-
-    # set the mobile level
-    lc.ble_cmd_mbl_ensure('0')
 
     print('downloading', file_name, '...')
     rv = lc.ble_cmd_dwg(file_name)
@@ -70,4 +71,4 @@ def file_dwg(file_name, file_size: int):
 
 if __name__ == '__main__':
 
-    file_dwg('1234567_kaz_20220314_180935.lid', 16240)
+    file_dwg('dummy_70112.lid', 10240)

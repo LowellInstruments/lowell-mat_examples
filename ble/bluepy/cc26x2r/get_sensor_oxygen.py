@@ -6,7 +6,12 @@ from _macs import get_mac
 def measure_oxygen(pre_stp=False):
 
     # mac = get_mac()
-    mac = '60:77:71:22:C8:49'
+    #mac = '60:77:71:22:C8:49'
+    # mac = '04:ee:03:73:87:22'
+    # mac = '60:77:71:22:C8:6F'
+
+    mac = '04:EE:03:73:87:22'
+
     lc = LoggerControllerCC26X2R(mac)
 
     if lc.open():

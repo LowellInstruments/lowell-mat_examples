@@ -9,9 +9,6 @@ def download(file_name, file_size):
     lc = LoggerDO2()
     lc.ble_connect(mac)
 
-    # maybe slow it down
-    lc.ble_cmd_ensure_slw_on()
-
     # target file
     s = pathlib.Path.home() / 'Downloads' / file_name
     a = lc.ble_cmd_dwg(file_name)
