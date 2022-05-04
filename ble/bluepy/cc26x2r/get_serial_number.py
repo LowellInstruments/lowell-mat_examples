@@ -4,7 +4,7 @@ from _macs import get_mac
 
 def get_serial_number():
 
-    mac = get_mac()
+    mac = '60:77:71:22:CA:6D'
     lc = LoggerControllerCC26X2R(mac)
 
     if lc.open():

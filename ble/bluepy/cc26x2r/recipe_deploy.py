@@ -11,6 +11,8 @@ def _deploy(c_d: dict, mac):
         print('> status: {}'.format(rv))
         rv = lc.ble_cmd_stp()
         print('> stop: {}'.format(rv))
+        rv = lc.ble_cmd_gfv()
+        print('> version: {}'.format(rv))
         rv = lc.ble_cmd_stm()
         print('> set time: {}'.format(rv))
         rv = lc.ble_cmd_gtm()
@@ -29,30 +31,41 @@ def _deploy(c_d: dict, mac):
         print('> set info MA: {}'.format(rv))
         rv = lc.ble_cmd_cfg(c_d)
         print('> config cmd: {}'.format(rv))
-        # rv = lc.ble_cmd_run()
-        # print('> run: {}'.format(rv))
+        rv = lc.ble_cmd_run()
+        print('> run: {}'.format(rv))
 
     else:
         print('{} connection error'.format(__name__))
     lc.close()
 
 
-def cfg_do():
-    # mac = get_mac()
-    # mac = '60:77:71:22:C8:49'
-    # mac = '04:ee:03:73:87:22'
+def cfg_do1():
     mac = '60:77:71:22:C8:6f'
-    # mac = '04:EE:03:E2:4F:F9'
-    # mac = '60:77:71:22:CA:18'
-    # mac = '58:93:D8:A4:B6:35'
-    # mac = '60:77:71:22:C9:cd'
-    # mac = '60:77:71:22:CA:3A'
+    #mac = '58:93:d8:a4:b6:15'
 
     d = {
         "DFN": "kaz",
         "TMP": 0, "PRS": 0,
         "DOS": 1, "DOP": 1, "DOT": 1,
-        "TRI": 10, "ORI": 10, "DRI": 300,
+        "TRI": 10, "ORI": 10, "DRI": 30,
+        "PRR": 1,
+        "PRN": 1,
+        "STM": "2012-11-12 12:14:00",
+        "ETM": "2030-11-12 12:14:20",
+        "LED": 1
+    }
+    _deploy(d, mac)
+
+
+def cfg_do2():
+    # mac = '60:77:71:22:CA:6A'
+    mac = '60:77:71:22:CA:6D'
+
+    d = {
+        "DFN": "kaz",
+        "TMP": 0, "PRS": 0,
+        "DOS": 1, "DOP": 1, "DOT": 1,
+        "TRI": 10, "ORI": 10, "DRI": 30,
         "PRR": 1,
         "PRN": 1,
         "STM": "2012-11-12 12:14:00",
@@ -81,5 +94,7 @@ def cfg_mat():
 
 if __name__ == '__main__':
 
-    cfg_do()
+    # cfg_do1()
     # cfg_mat()
+    cfg_do2()
+

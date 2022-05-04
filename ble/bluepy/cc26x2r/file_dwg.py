@@ -22,10 +22,9 @@ def file_convert(path):
 def file_dwg(file_name, file_size: int):
 
     # mac = get_mac()
-    # mac = '60:77:71:22:C8:49'
-    # mac = '60:77:71:22:C9:CD'
-    mac = '60:77:71:22:C8:6F'
-    # mac = '60:77:71:22:CA:3A'
+    mac = '60:77:71:22:C7:73'
+    # mac = '60:77:71:22:c8:6f'
+
 
     lc = LoggerControllerCC26X2R(mac)
 
@@ -33,8 +32,18 @@ def file_dwg(file_name, file_size: int):
         print('{} connection error'.format(__name__))
         return
 
-    rv = lc.ble_cmd_stp()
-    print('STOP {}'.format(rv))
+    rv = False
+    for i in range(3):
+        rv = lc.ble_cmd_stp()
+        print('STOP {}'.format(rv))
+        if rv:
+            break
+        time.sleep(3)
+
+    if not rv:
+        print('could not stop logger')
+        lc.close()
+        return
 
     print('downloading', file_name, '...')
     rv = lc.ble_cmd_dwg(file_name)
@@ -59,6 +68,7 @@ def file_dwg(file_name, file_size: int):
 
         remote_crc = lc.ble_cmd_crc(file_name)
         rv = local_crc.lower() == remote_crc
+        print(local_crc.lower(), remote_crc)
         print('CRC check == {}'.format(rv))
 
         rv = file_convert(path)
@@ -71,4 +81,4 @@ def file_dwg(file_name, file_size: int):
 
 if __name__ == '__main__':
 
-    file_dwg('dummy_70112.lid', 10240)
+    file_dwg('1234567_kaz_20220428_160657.lid', 2199)

@@ -5,7 +5,7 @@ from _macs import get_mac
 def status():
 
     # mac = get_mac()
-    mac = '60:77:71:22:CA:3A'
+    mac = '60:77:71:22:C8:6F'
 
     lc = LoggerControllerCC26X2R(mac)
 

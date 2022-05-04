@@ -5,9 +5,8 @@ from _macs import get_mac
 def file_list():
 
     # mac = get_mac()
-    # mac = '60:77:71:22:C8:49'
-    mac = '60:77:71:22:C8:6F'
-    # mac = '60:77:71:22:C9:CD'
+    mac = '60:77:71:22:C7:73'
+    # mac = '60:77:71:22:c8:6f'
 
     lc = LoggerControllerCC26X2R(mac)
 
