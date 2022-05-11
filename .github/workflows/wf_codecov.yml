@@ -17,25 +17,26 @@ jobs:
       with:
         python-version: 3.7
         
-    - name: CREATE COVERAGE report
+    - name: LOWELL -> PYTHON VIRTUAL ENVIRONMENT
       run: |
         pip install wheel 
         pip install pytest
         pip install pytest-cov
         pip install git+https://github.com/LowellInstruments/bluepy.git
         pip install git+https://github.com/LowellInstruments/lowell-mat.git
+
+    - name: LOWELL -> RUNNING TESTS and COVERAGE ANALYSIS
+      run: |
         pytest --cov=./ tests/ --cov-report=xml --cov-report=html
-        
-    - name: UPLOAD COVERAGE report to COVECOD
+
+    - name: LOWELL -> UPLOAD COVERAGE report to COVECOD
       uses: codecov/codecov-action@v2
       with:
       
         # only private repositories need TOKEN
         # token: ${{ secrets.CODECOV_TOKEN }}
         
-        # this 'files' is optional
-        # files: ./coverage1.xml,./coverage2.xml
-        
+        files: ./coverage.xml
         directory: ./coverage/reports/
         env_vars: OS,PYTHON
         path_to_write_report: ./coverage/codecov_report.txt
