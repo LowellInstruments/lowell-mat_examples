@@ -13,11 +13,6 @@ jobs:
     steps:
     - uses: actions/checkout@master
 
-    - name: Setup Node
-      uses: actions/setup-node@v3
-      with:
-        node-version: 14
-
     - name: Setup Python
       uses: actions/setup-python@master
       with:
@@ -43,7 +38,8 @@ jobs:
       env:
         CC_TEST_REPORTER_ID: ${{secrets.CC_TEST_REPORTER_ID}}
       with:
-        coverageCommand: npm run coverage
+        coverageCommand: pytest --cov=./ tests/ --cov-report xml:cov.xml --cov-report term
+        coverageLocations: ${{github.workspace}}/cov.xml:coverage.py
         debug: true
 
     - name: LOWELL -> UPLOAD COVERAGE report to COVECOD
