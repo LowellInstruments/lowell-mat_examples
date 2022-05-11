@@ -1,0 +1,3 @@
+don't delete the PDF
+it is here so people can download it once we push this repo
+
