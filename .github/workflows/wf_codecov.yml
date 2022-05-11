@@ -26,11 +26,6 @@ jobs:
         pip install git+https://github.com/LowellInstruments/bluepy.git
         pip install git+https://github.com/LowellInstruments/lowell-mat.git
 
-    - name: LOWELL -> INSTALL CODECLIMATE
-      run: |
-        curl -L https://github.com/codeclimate/codeclimate/archive/master.tar.gz | tar xvz
-        cd codeclimate-* && sudo make install
-
     - name: LOWELL -> RUNNING TESTS and COVERAGE ANALYSIS
       run: |
         # XML output is a file, HTML are folders
