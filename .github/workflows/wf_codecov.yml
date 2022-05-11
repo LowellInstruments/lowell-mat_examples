@@ -12,12 +12,19 @@ jobs:
       PYTHON: '3.7'
     steps:
     - uses: actions/checkout@master
+
+    - name: Setup Node
+    - uses: actions/setup-node@v3
+      with:
+        node-version: 14
+        cache: 'npm'
+        cache-dependency-path: subdir/package-lock.json
+
     - name: Setup Python
       uses: actions/setup-python@master
       with:
         python-version: 3.7
-        node-version: 14
-        
+
     - name: LOWELL -> PYTHON VIRTUAL ENVIRONMENT
       run: |
         pip install wheel 
