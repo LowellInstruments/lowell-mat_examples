@@ -1,4 +1,4 @@
-name: Workflow for lowell-mat_examples CODECOV
+name: Workflow CODECOV + CODECLIMATE
 on: [push, workflow_dispatch]
 jobs:
   run:
@@ -16,6 +16,7 @@ jobs:
       uses: actions/setup-python@master
       with:
         python-version: 3.7
+        node-version: 14
         
     - name: LOWELL -> PYTHON VIRTUAL ENVIRONMENT
       run: |
@@ -31,6 +32,14 @@ jobs:
         # XML output is a file, HTML are folders
         pytest --cov=./ tests/ --cov-report html:cov_html --cov-report xml:cov.xml \
         --cov-report annotate:cov_annotate --cov-report term
+
+    - name: LOWELL -> UPLOAD COVERAGE report to CODE CLIMATE
+      uses: paambaati/codeclimate-action@v3.0.0
+      env:
+        CC_TEST_REPORTER_ID: ${{secrets.CC_TEST_REPORTER_ID}}
+      with:
+        coverageCommand: npm run coverage
+        debug: true
 
     - name: LOWELL -> UPLOAD COVERAGE report to COVECOD
       uses: codecov/codecov-action@v2
