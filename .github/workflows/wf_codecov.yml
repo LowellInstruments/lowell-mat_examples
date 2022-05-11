@@ -27,7 +27,10 @@ jobs:
 
     - name: LOWELL -> RUNNING TESTS and COVERAGE ANALYSIS
       run: |
-        pytest --cov=./ tests/ --cov-report=xml --cov-report=html
+        # output locations can be specified
+        # XML output is a file, HTML are folders
+        pytest --cov=./ tests/ --cov-report html:cov_html --cov-report xml:cov.xml \
+        --cov-report annotate:cov_annotate --cov-report term
 
     - name: LOWELL -> UPLOAD COVERAGE report to COVECOD
       uses: codecov/codecov-action@v2
