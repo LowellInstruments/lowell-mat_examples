@@ -17,7 +17,7 @@ jobs:
       with:
         python-version: 3.7
         
-    - name: CREATE COVERAGE report
+    - name: LOWELL -> PYTHON VIRTUAL ENVIRONMENT
       run: |
         pip install wheel 
         pip install pytest
@@ -25,8 +25,12 @@ jobs:
         pip install git+https://github.com/LowellInstruments/bluepy.git
         pip install git+https://github.com/LowellInstruments/lowell-mat.git
         pytest --cov=./ tests/ --cov-report=xml
+    
+    - name: LOWELL -> RUNNING TESTS and COVERAGE ANALYSIS
+      run: |
+        pytest --cov=./ tests/ --cov-report=xml
         
-    - name: UPLOAD COVERAGE report to COVECOD
+    - name: LOWELL -> UPLOAD COVERAGE report to COVECOD
       uses: codecov/codecov-action@v2
       with:
       
