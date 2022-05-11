@@ -29,7 +29,7 @@ jobs:
     - name: LOWELL -> RUNNING TESTS and COVERAGE ANALYSIS
       run: |
         # XML output is a file, HTML are folders
-        pytest --cov=./ tests/ --cov-report xml:cov.xml term
+        pytest --cov=./ tests/ --cov-report xml:cov.xml --cov-report term
         # other options
         # pytest --cov=./ tests/ --cov-report html:cov_html
 
