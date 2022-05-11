@@ -18,13 +18,18 @@ jobs:
       with:
         python-version: 3.7
 
-    - name: LOWELL -> PYTHON VIRTUAL ENVIRONMENT
+    - name: LOWELL -> INSTALL PYTHON VIRTUAL ENVIRONMENT
       run: |
         pip install wheel 
         pip install pytest
         pip install pytest-cov
         pip install git+https://github.com/LowellInstruments/bluepy.git
         pip install git+https://github.com/LowellInstruments/lowell-mat.git
+
+    - name: LOWELL -> INSTALL CODECLIMATE
+      run: |
+        curl -L https://github.com/codeclimate/codeclimate/archive/master.tar.gz | tar xvz
+        cd codeclimate-* && sudo make install
 
     - name: LOWELL -> RUNNING TESTS and COVERAGE ANALYSIS
       run: |
