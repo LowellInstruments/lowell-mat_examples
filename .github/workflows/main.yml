@@ -33,9 +33,7 @@ jobs:
         # only private repositories need TOKEN
         # token: ${{ secrets.CODECOV_TOKEN }}
         
-        # this 'files' is optional
-        # files: ./coverage1.xml,./coverage2.xml
-        
+        files: ./coverage.xml
         directory: ./coverage/reports/
         env_vars: OS,PYTHON
         path_to_write_report: ./coverage/codecov_report.txt
