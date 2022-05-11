@@ -1,11 +1,11 @@
 from ble.bluepy.cc26x2r.status_stop import stop
 from mat.ble.bluepy.cc26x2r_logger_controller import LoggerControllerCC26X2R
-from _macs import get_mac
+
 
 
 def set_time():
 
-    mac = get_mac()
+    mac = '11:22:33:44:55:66'
     lc = LoggerControllerCC26X2R(mac)
 
     if lc.open():

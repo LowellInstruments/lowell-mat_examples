@@ -1,12 +1,10 @@
 from mat.ble.bluepy.cc26x2r_logger_controller import LoggerControllerCC26X2R
-from _macs import get_mac
+
 
 
 def file_list():
 
-    # mac = get_mac()
-    mac = '60:77:71:22:C7:73'
-    # mac = '60:77:71:22:c8:6f'
+    mac = '60:77:71:22:C9:B3'
 
     lc = LoggerControllerCC26X2R(mac)
 

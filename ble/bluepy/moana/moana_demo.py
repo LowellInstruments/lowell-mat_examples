@@ -1,11 +1,10 @@
 import os
 import time
 from pathlib import Path
-from _macs import get_mac
 from mat.ble.bluepy.moana_logger_controller import LoggerControllerMoana
 
 
-mac = get_mac()
+mac = '11:22:33:44:55:66'
 
 
 def download_moana_logger(fol):
@@ -34,7 +33,7 @@ def download_moana_logger(fol):
     # ------------------------------
     # save and convert file
     # ------------------------------
-    name_bin_local = lc.file_save(data)
+    name_bin_local = lc.file_save(fol, data)
     if name_bin_local:
         print('saved as {}'.format(name_bin_local))
         name_csv_local = lc.file_cnv(name_bin_local, fol, len(data))

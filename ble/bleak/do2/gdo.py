@@ -1,9 +1,9 @@
-from _macs import get_mac
+
 from mat.ble.bleak_beta.logger_do2 import LoggerDO2
 
 
 def gdo():
-    mac = get_mac()
+    mac = '11:22:33:44:55:66'
     lc = LoggerDO2()
     lc.ble_connect(mac)
     lc.ble_cmd_gdo()

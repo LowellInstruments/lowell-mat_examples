@@ -21,10 +21,7 @@ def file_convert(path):
 
 def file_dwg(file_name, file_size: int):
 
-    # mac = get_mac()
-    mac = '60:77:71:22:C7:73'
-    # mac = '60:77:71:22:c8:6f'
-
+    mac = '60:77:71:22:C9:B3'
 
     lc = LoggerControllerCC26X2R(mac)
 
@@ -81,4 +78,4 @@ def file_dwg(file_name, file_size: int):
 
 if __name__ == '__main__':
 
-    file_dwg('1234567_kaz_20220428_160657.lid', 2199)
+    file_dwg('dummy_58.lid', 167936)

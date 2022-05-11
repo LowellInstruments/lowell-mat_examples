@@ -1,10 +1,10 @@
-from _macs import get_mac
+
 from mat.ble.bleak_beta.logger_mat import LoggerMAT
 
 
 def stop():
     cla = LoggerMAT
-    mac = get_mac()
+    mac = '11:22:33:44:55:66'
     lc = cla()
     lc.ble_connect(mac)
     lc.ble_cmd_stp()

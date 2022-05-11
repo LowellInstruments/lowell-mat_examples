@@ -1,5 +1,5 @@
 from mat.ble.bluepy.cc26x2r_logger_controller import LoggerControllerCC26X2R
-from _macs import get_mac
+
 
 
 def _deploy(c_d: dict, mac):
@@ -59,7 +59,7 @@ def cfg_do1():
 
 def cfg_do2():
     # mac = '60:77:71:22:CA:6A'
-    mac = '60:77:71:22:CA:6D'
+    mac = '60:77:71:22:C9:B3'
 
     d = {
         "DFN": "kaz",
@@ -76,7 +76,7 @@ def cfg_do2():
 
 
 def cfg_mat():
-    mac = get_mac()
+    mac = '11:22:33:44:55:66'
 
     d = {
         "DFN": "low",

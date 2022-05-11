@@ -1,6 +1,6 @@
 import time
 from mat.ble.bluepy.cc26x2r_logger_controller import LoggerControllerCC26X2R
-from _macs import get_mac
+
 
 
 def measure_oxygen(pre_stp=False):
