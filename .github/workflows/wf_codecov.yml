@@ -28,10 +28,10 @@ jobs:
 
     - name: LOWELL -> RUNNING TESTS and COVERAGE ANALYSIS
       run: |
-        # output locations can be specified
         # XML output is a file, HTML are folders
-        pytest --cov=./ tests/ --cov-report html:cov_html --cov-report xml:cov.xml \
-        --cov-report annotate:cov_annotate --cov-report term
+        pytest --cov=./ tests/ --cov-report xml:cov.xml term
+        # other options
+        # pytest --cov=./ tests/ --cov-report html:cov_html
 
     - name: LOWELL -> UPLOAD COVERAGE report to CODE CLIMATE
       uses: paambaati/codeclimate-action@v3.0.0
