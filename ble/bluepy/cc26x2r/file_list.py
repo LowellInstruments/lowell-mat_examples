@@ -4,7 +4,7 @@ from mat.ble.bluepy.cc26x2r_logger_controller import LoggerControllerCC26X2R
 
 def file_list():
 
-    mac = '60:77:71:22:C9:B3'
+    mac = '60:77:71:22:CA:6D'
 
     lc = LoggerControllerCC26X2R(mac)
 
