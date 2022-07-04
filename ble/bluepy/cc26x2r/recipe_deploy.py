@@ -31,8 +31,8 @@ def _deploy(c_d: dict, mac):
         print('> set info MA: {}'.format(rv))
         rv = lc.ble_cmd_cfg(c_d)
         print('> config cmd: {}'.format(rv))
-        rv = lc.ble_cmd_run()
-        print('> run: {}'.format(rv))
+        # rv = lc.ble_cmd_run()
+        # print('> run: {}'.format(rv))
 
     else:
         print('{} connection error'.format(__name__))
@@ -59,7 +59,9 @@ def cfg_do1():
 
 def cfg_do2():
     # mac = '60:77:71:22:CA:6A'
-    mac = '60:77:71:22:C9:B3'
+    # mac = '60:77:71:22:C9:B3'
+    mac = '60:77:71:22:CA:6D'
+
 
     d = {
         "DFN": "kaz",

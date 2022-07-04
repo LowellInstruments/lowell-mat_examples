@@ -1,4 +1,6 @@
 import time
+
+from ble.bluepy.cc26x2r.mode_slow import set_mode_slow
 from mat.crc import calculate_local_file_crc
 from mat.ble.bluepy.cc26x2r_logger_controller import LoggerControllerCC26X2R
 from pathlib import Path
@@ -78,4 +80,9 @@ def file_dwg(file_name, file_size: int):
 
 if __name__ == '__main__':
 
-    file_dwg('ddp.cfg', 162)
+    # set this if files download few bytes short (uncommon)
+    # but happens with file sizes such as 2293 % 244 = 1
+    # set_mode_slow('on')
+
+    set_mode_slow('off')
+    file_dwg('dummy_36.lid', 167936)
